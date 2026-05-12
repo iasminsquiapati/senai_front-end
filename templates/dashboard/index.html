@@ -1,12 +1,12 @@
 {% extends 'layout.html'%}
   {%block page_header %} 
   <script src="../assets/js/color-modes.js"></script>
-    <link href="/static/bootstrap-5.3.6/css/bootstrap.min.css" />
+  <!-- <link href=". ./assets/dist/css/bootstrap.min.css" rel="stylesheet" /> -->
     <meta name="theme-color" content="#712cf9" />
-    <link href="dashboard.css" rel="stylesheet" />
+    <link href="/static/css/dashboard.css" rel="stylesheet" />
   {%endblock %}
-{%block page_style %} 
 
+{%block page_style %} 
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -318,12 +318,12 @@
     </header>
     <div class="container-fluid">
       <div class="row">
-        <div
-          class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary"
-        >
-
-        <!--Sidebar -->
-        {% include 'dashboard/sidebar.html' %}
+        <!-- Sidebar -->
+         {% include 'dashboard/sidebar.html' %}
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+          <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+          >
             <h1 class="h2">Dashboard</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group me-2">
@@ -352,17 +352,20 @@
             height="380"
           ></canvas>
 
-          <!-- Tabela de dados-->
-          <h2>Section title</h2>
-          {%include 'dashboard/datatable.html'%}
+          <!-- Tabela de dados -->
+          <h2>total de vendas no ano 2026</h2>
+         {% include 'dashboard/datatable.html' %} 
         </main>
       </div>
     </div>
   {% endblock %}
+
 {%block page_js %} 
-<script
-      src="../assets/dist/js/bootstrap.bundle.min.js"
+    <script
+      src="https://cdn.jsdelivr.net/npm/chart.js@4.3.2/dist/chart.umd.js"
+      integrity="sha384-eI7PSr3L1XLISH8JdDII5YN/njoSsxfbrkCTnJrzXt+ENP5MOVBxD+l6sEG4zoLp"
+      crossorigin="anonymous"
       class="astro-vvvwv3sm"
     ></script>
-    <script src="dashboard.js" class="astro-vvvwv3sm"></script>
+    <script src="static/css/dashboard.js" class="astro-vvvwv3sm"></script>
 {%endblock %}
